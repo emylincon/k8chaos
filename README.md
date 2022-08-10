@@ -19,5 +19,5 @@ pip3 install -r requirements.txt
 ```
 * Run experiment
 ```bash
-chaos run experiment.json 
+chaos run experiment.json
 ```

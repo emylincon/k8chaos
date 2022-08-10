@@ -12,4 +12,4 @@ nodeGroups:
     minSize: 2
     maxSize: 3
     ssh:
-      allow: true 
+      allow: true
