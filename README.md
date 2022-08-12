@@ -21,3 +21,7 @@ pip3 install -r requirements.txt
 ```bash
 chaos run experiment.json
 ```
+
+# Resources
+* [EKSCTK](https://eksctl.io)
+* [ChaosToolKit usage](https://chaostoolkit.org/reference/usage/cli/)
