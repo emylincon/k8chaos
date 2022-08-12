@@ -24,4 +24,6 @@ chaos run experiment.json
 
 # Resources
 * [EKSCTK](https://eksctl.io)
-* [ChaosToolKit usage](https://chaostoolkit.org/reference/usage/cli/)
+* [ChaosToolKit Documentation](https://chaostoolkit.org/reference/usage/cli/)
+* [linkedin learning chaos engineering course](https://www.linkedin.com/learning/devops-foundations-chaos-engineering/organized-chaos?autoplay=true&u=2146476)
+* [Chaos Tookkit Getting started Youtube video](https://www.youtube.com/watch?v=XZ_1ZqyOCdE&t=946s)
