@@ -26,5 +26,8 @@ method:
       label_selector: app=nginx
       name_pattern: nginx-deployment-[0-9]*
       rand: true
+      ns: default
+      qty: 1
+
   pauses:
-    after: 20
+    after: 10
