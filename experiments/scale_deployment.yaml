@@ -1,5 +1,5 @@
 ---
-title: Do we remain available after deleting deployment
+title: Do we remain available after scaling down replica sets
 description: Experiment is expected to fail because there is no gitops pipeline
 tags:
 - kubernetes
