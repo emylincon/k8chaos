@@ -13,13 +13,17 @@ kubectl apply -f nginx.yaml
 ```bash
 python3 -m venv venv
 ```
+* activate virtual environment
+```
+source venv/bin/activate
+```
 * install dependencies
 ```bash
 pip3 install -r requirements.txt
 ```
 * Run experiment
 ```bash
-chaos run experiment.json
+chaos run experiments/terminate_pod.yaml
 ```
 
 # Resources
