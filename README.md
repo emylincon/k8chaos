@@ -28,11 +28,18 @@ chaos run experiments/terminate_pod.yaml  --rollback-strategy deviated
 
 # Experiment solutions
 * `terminate_pod.yaml`: number of replicas should be at least 2
-* `delete_deployment.yaml`: Use a suitable gitops strategy
-* `scale_deployment.yaml`: Use a suitable gitops strategy
+* `delete_deployment.yaml`: Use a suitable GitOps strategy
+* `scale_deployment.yaml`: Use a suitable GitOps strategy
 * `delete_node.yaml`: Use an autoscaling group
-* `drain_node.yaml`: Use a suitable gitops strategy
+* `drain_node.yaml`: Use a suitable GitOps strategy & autoscaling group
 * `delete_replica.yaml`: Use kubernetes deployment
+
+## Helper script
+* `ensure_deployment.sh` script is a helper script that ensure the deployment is always up & replica count matches manifest
+* This script is an overly simplified emulation of what `GitOps` tools like [`Argo CD`](https://github.com/argoproj/argo-cd) does.
+```bash
+./ensure_deployment.sh
+```
 
 # Resources
 * [EKSCTK](https://eksctl.io)
