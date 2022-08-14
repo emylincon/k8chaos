@@ -23,8 +23,13 @@ pip3 install -r requirements.txt
 ```
 * Run experiment
 ```bash
-chaos run experiments/terminate_pod.yaml
+chaos run experiments/terminate_pod.yaml  --rollback-strategy always
 ```
+
+# Experiment solutions
+* `terminate_pod.yaml`: number of replicas should be at least 2
+* `delete_deployment.yaml`: Use a suitable gitops strategy
+* `scale_deployment.yaml`: Use a suitable gitops strategy
 
 # Resources
 * [EKSCTK](https://eksctl.io)
