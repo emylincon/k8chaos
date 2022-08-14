@@ -1,0 +1,36 @@
+---
+title: Do we remain available after draining node
+description: Experiment drains node
+tags:
+- kubernetes
+steady-state-hypothesis:
+  title: Verifying service remains healthy
+  probes:
+  - name: all-our-microservices-should-be-healthy
+    type: probe
+    tolerance: true
+    provider:
+      type: python
+      module: chaosk8s.probes
+      func: deployment_available_and_healthy
+      arguments:
+        name: nginx-deployment
+method:
+- type: action
+  name: drain-nodes
+  provider:
+    func: drain_nodes
+    module: chaosk8s.node.actions
+    type: python
+    arguments:
+      count: 1
+      timeout: 120
+  pauses:
+    after: 120
+rollbacks:
+- name: create-node
+  provider:
+    func: create_node
+    module: chaosk8s.node.actions
+    type: python
+  type: action
