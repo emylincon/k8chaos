@@ -7,9 +7,9 @@ metadata:
   region: eu-central-1
 
 nodeGroups:
-  - name: ng-1
+  - name: emeka-ng
     instanceType: t2.small
     minSize: 2
     maxSize: 3
     ssh:
-      allow: true
+      allow: false
