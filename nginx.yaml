@@ -42,5 +42,5 @@ spec:
   - name: nginx-service
     protocol: TCP
     port: 80
-    targetPort: 5000
+    targetPort: 80
     nodePort: 30001
