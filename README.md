@@ -32,7 +32,8 @@ chaos run experiments/terminate_pod.yaml  --rollback-strategy deviated
 * `scale_deployment.yaml`: Use a suitable GitOps strategy
 * `delete_node.yaml`: Use an autoscaling group
 * `drain_node.yaml`: Use a suitable GitOps strategy & autoscaling group
-* `delete_replica.yaml`: Use kubernetes deployment
+* `delete_replica.yaml`: Use kubernetes deployments
+* `delete_service.yaml`: Use a suitable GitOps strategy & DNS configuration
 
 ## Helper script
 * `ensure_deployment.sh` script is a helper script that ensure the deployment is always up & replica count matches manifest
