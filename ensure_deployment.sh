@@ -26,5 +26,12 @@ while [ true ]; do
         kubectl apply -f nginx.yaml
         line_break
     fi
+    output=$(kubectl get svc nginx-service -o json 2>/dev/null)
+    if [[ ! $? -eq 0 ]]; then
+        echo "[$(date)] - Failed to get svc nginx-service"
+        echo "[$(date)] - Restarting service..."
+        kubectl apply -f nginx.yaml
+        line_break
+    fi
     sleep 2
 done
