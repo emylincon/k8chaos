@@ -23,3 +23,4 @@ kubectl apply -n argocd -f nginx_app.yaml
 ## Resources
 * [ArgoCd Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 * [ArgoCD Apps Example](https://github.com/argoproj/argocd-example-apps)
+* [Youtube Example](https://www.youtube.com/watch?v=2WSJF7d8dUg&ab_channel=ThatDevOpsGuy)
