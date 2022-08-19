@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  password:
+    cmds:
+      - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+    silent: true
+  expose:
+    cmds:
+      - kubectl port-forward svc/argocd-server -n argocd 8080:443
