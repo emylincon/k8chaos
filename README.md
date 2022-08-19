@@ -6,7 +6,7 @@ eksctl create cluster -f eks_cluster.yaml
 ```
 * spin up test nginx deployment
 ```bash
-kubectl apply -f nginx.yaml
+kubectl apply -f app/nginx.yaml
 ```
 ## Experiment
 * create virtual environment
@@ -46,4 +46,4 @@ chaos run experiments/terminate_pod.yaml  --rollback-strategy deviated
 * [EKSCTK](https://eksctl.io)
 * [ChaosToolKit Documentation](https://chaostoolkit.org/reference/usage/cli/)
 * [linkedin learning chaos engineering course](https://www.linkedin.com/learning/devops-foundations-chaos-engineering/organized-chaos?autoplay=true&u=2146476)
-* [Chaos Tookkit Getting started Youtube video](https://www.youtube.com/watch?v=XZ_1ZqyOCdE&t=946s)
+* [Chaos Toolkit Getting started Youtube video](https://www.youtube.com/watch?v=XZ_1ZqyOCdE&t=946s)

@@ -8,7 +8,7 @@ line_break
 echo "[$(date)] - Starting Deployment Service manager..."
 line_break
 
-defaultReplicaCount=$(yq '.spec.replicas' <nginx.yaml | head -n 1)
+defaultReplicaCount=$(yq '.spec.replicas' <app/nginx.yaml | head -n 1)
 
 while [ true ]; do
     output=$(kubectl get deployments.apps nginx-deployment -o json 2>/dev/null) # send error to /dev/null
