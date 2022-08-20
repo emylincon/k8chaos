@@ -2,15 +2,13 @@
 These are experiments that are intended to be explored
 
 # Chaos Experiments
-## Load testing
-[path](load_test/README.md)
+## [Load testing 🔗](load_test/)
 * loading testing using `k6`
 * stress testing
 * spike testing
 * smoke testing
 
-## Kubernetes
-[path](kubernetes/README.md)
+## [Kubernetes 🔗](kubernetes/)
 * deployment failure
 * service failure
 * pod failure
