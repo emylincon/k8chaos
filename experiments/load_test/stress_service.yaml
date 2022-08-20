@@ -2,7 +2,7 @@
 title: Do we remain available after stressing the k8 service
 description: service endpoint might throttle
 tags:
-- kubernetes
+  - kubernetes
 configuration:
   front_url:
     type: env
@@ -11,21 +11,21 @@ configuration:
 steady-state-hypothesis:
   title: Verifying service remains healthy
   probes:
-  - type: probe
-    name: front-service-must-be-ok
-    tolerance: 200
-    provider:
-      type: http
-      url: "${front_url}"
+    - type: probe
+      name: front-service-must-be-ok
+      tolerance: 200
+      provider:
+        type: http
+        url: "${front_url}"
 method:
-- type: action
-  name: stress-endpoint
-  provider:
-    func: run_script
-    module: chaosk6.actions
-    type: python
-    arguments:
-      script_path: "experiments/load_testing/simple.js"
-      debug: true
-  pauses:
-    after: 5
+  - type: action
+    name: stress-endpoint
+    provider:
+      func: run_script
+      module: chaosk6.actions
+      type: python
+      arguments:
+        script_path: "experiments/load_test/k6_scripts/simple.js"
+        debug: true
+    pauses:
+      after: 5
