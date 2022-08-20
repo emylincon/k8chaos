@@ -1,3 +1,7 @@
 venv
 chaostoolkit.log
 journal.json
+*.tfvars
+*.lock.hcl
+*.terraform
+*.tfstate*
