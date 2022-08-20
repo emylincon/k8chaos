@@ -1,0 +1,41 @@
+---
+title: Do we remain available after scaling down replica sets
+description: Experiment is expected to fail because there is no gitops pipeline
+tags:
+- kubernetes
+steady-state-hypothesis:
+  title: Verifying service remains healthy
+  probes:
+  - name: all-our-microservices-should-be-healthy
+    type: probe
+    tolerance: true
+    provider:
+      type: python
+      module: chaosk8s.probes
+      func: deployment_available_and_healthy
+      arguments:
+        name: nginx-deployment
+method:
+- type: action
+  name: scale-down-deployment
+  provider:
+    func: scale_deployment
+    module: chaosk8s.deployment.actions
+    type: python
+    arguments:
+      name: nginx-deployment
+      ns: default
+      replicas: 0
+  pauses:
+    after: 5
+rollbacks:
+- name: scale-up-deployment
+  provider:
+    func: scale_deployment
+    module: chaosk8s.deployment.actions
+    type: python
+    arguments:
+      name: nginx-deployment
+      ns: default
+      replicas: 2
+  type: action
