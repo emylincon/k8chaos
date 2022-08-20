@@ -13,6 +13,10 @@ These are experiments that are intended to be explored
 * service failure
 * pod failure
 
+## [Cloud 🔗](aws/)
+* ec2 resilience
+* region availability
+
 ## Networking
 * connection delay
 * Packet loss
@@ -22,7 +26,3 @@ These are experiments that are intended to be explored
 * Memory overload
 * I/O overload
 * shutdown
-
-## Cloud
-* ec2 resilience
-* region availability
