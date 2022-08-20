@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { sleep } from 'k6';
+import { sleep, check } from 'k6';
 
 export let options = {
     insecureSkipTLSVerify: true,
@@ -9,6 +9,10 @@ export let options = {
 };
 
 export default () => {
-    http.get('http://localhost');
+    const response = http.get('http://localhost');
+    check(response, {
+        "status is 200": (r) => r.status == 200,
+        "duration is <= 200": (r) => r.timings.duration <= 200
+    })
     sleep(1);
 };

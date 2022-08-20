@@ -12,7 +12,7 @@ pip3 install -U chaostoolkit-k6
 ## Run Experiments
 * Run experiment using k6
 ```bash
-k6 run experiments/load_test/k6_scripts/simple.js
+k6 run --out csv=output.csv experiments/load_test/k6_scripts/simple.js
 ```
 * Run experiment using chaostoolkit
 ```bash
