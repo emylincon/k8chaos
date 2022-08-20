@@ -17,7 +17,7 @@ These are experiments that are intended to be explored
 * ec2 resilience
 * region availability
 
-## Networking
+## [Networking🔗](network/)
 * connection delay
 * Packet loss
 
