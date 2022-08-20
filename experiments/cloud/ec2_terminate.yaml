@@ -1,0 +1,26 @@
+title: Do we remain available after shutting down ec2
+description: service would be unavailable if there is no autoscaling group available
+configuration:
+  aws_profile_name: "sandbox"
+  aws_region: "eu-central-1"
+  front_url: http://3.67.84.250 # replace with terraform output
+steady-state-hypothesis:
+  title: Verifying service remains healthy
+  probes:
+    - type: probe
+      name: front-service-must-be-ok
+      tolerance: 200
+      provider:
+        type: http
+        url: "${front_url}"
+method:
+  - type: action
+    name: terminate-instance
+    provider:
+      func: terminate_instance
+      module: chaosaws.ec2.actions
+      type: python
+      arguments:
+        az: "eu-central-1a"
+    pauses:
+      after: 5
