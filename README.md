@@ -21,19 +21,24 @@ source venv/bin/activate
 ```bash
 pip3 install -r requirements.txt
 ```
-* Run experiment
+## Run Experiment
+* Kubernetes experiment
 ```bash
-chaos run experiments/terminate_pod.yaml  --rollback-strategy deviated
+chaos run experiments/kubernetes/terminate_pod.yaml  --rollback-strategy deviated
+```
+* load_test experiment
+```bash
+chaos run experiments/load_test/stress_service.yaml  --rollback-strategy deviated
 ```
 
 # Experiment solutions
-* `terminate_pod.yaml`: number of replicas should be at least 2
-* `delete_deployment.yaml`: Use a suitable GitOps strategy
-* `scale_deployment.yaml`: Use a suitable GitOps strategy
-* `delete_node.yaml`: Use an autoscaling group
-* `drain_node.yaml`: Use a suitable GitOps strategy & autoscaling group
-* `delete_replica.yaml`: Use kubernetes deployments
-* `delete_service.yaml`: Use a suitable GitOps strategy & DNS configuration
+* `experiments/kubernetes/terminate_pod.yaml`: number of replicas should be at least 2
+* `experiments/kubernetes/delete_deployment.yaml`: Use a suitable GitOps strategy
+* `experiments/kubernetes/scale_deployment.yaml`: Use a suitable GitOps strategy
+* `experiments/kubernetes/delete_node.yaml`: Use an autoscaling group
+* `experiments/kubernetes/drain_node.yaml`: Use a suitable GitOps strategy & autoscaling group
+* `experiments/kubernetes/delete_replica.yaml`: Use kubernetes deployments
+* `experiments/kubernetes/delete_service.yaml`: Use a suitable GitOps strategy & DNS configuration
 
 ## Helper script
 * `ensure_deployment.sh` script is a helper script that ensure the deployment is always up & replica count matches manifest
