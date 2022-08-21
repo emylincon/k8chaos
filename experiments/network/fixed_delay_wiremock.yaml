@@ -1,0 +1,75 @@
+---
+title: Do we remain available after fixed delay is introduced
+description: service endpoint might throttle
+tags:
+  - kubernetes
+configuration:
+  front_url:
+    type: env
+    key: FRONT_URL
+    default: http://127.0.0.1:8080
+  wiremock:
+    host: localhost
+    port: 8080
+    timeout: 10
+steady-state-hypothesis:
+  title: Verifying service remains healthy
+  probes:
+    - type: probe
+      name: front-service-must-be-ok
+      tolerance: 200
+      provider:
+        type: http
+        url: "${front_url}/name"
+        timeout: 10
+    - type: probe
+      name: front-service-must-be-ok
+      tolerance: 200
+      provider:
+        type: http
+        url: "${front_url}/greet"
+        timeout: 10
+method:
+  - name: fixed-delay
+    type: action
+    provider:
+      func: fixed_delay
+      module: chaoswm.actions
+      type: python
+      arguments:
+        filter:
+        - method: GET
+          url: "/greet"
+        fixedDelayMilliseconds: 2000
+
+  - type: action
+    name: global-fixed-delay
+    provider:
+      func: global_fixed_delay
+      module: chaoswm.actions
+      type: python
+      arguments:
+        fixedDelay: 1000
+    pauses:
+      after: 5
+
+rollbacks:
+  - name: fixed-delay
+    type: action
+    provider:
+      func: fixed_delay
+      module: chaoswm.actions
+      type: python
+      arguments:
+        filter:
+        - method: GET
+          url: "/greet"
+        fixedDelayMilliseconds: 0
+  - name: global-fixed-delay
+    type: action
+    provider:
+      func: global_fixed_delay
+      module: chaoswm.actions
+      type: python
+      arguments:
+        fixedDelay: 0
