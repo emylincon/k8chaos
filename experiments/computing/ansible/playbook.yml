@@ -1,0 +1,26 @@
+---
+- name: setup kubernetes pod experiment
+  hosts: localhost
+  vars:
+    pods:
+      - nginx-deployment-ccd987c9b-6j42n
+      - nginx-deployment-ccd987c9b-zm6zq
+  tasks:
+    - name: update apt
+      kubernetes.core.k8s_exec:
+        namespace: default
+        pod: "{{ item }}"
+        command: apt update
+      with_items: "{{ pods }}"
+    - name: install stress tool
+      kubernetes.core.k8s_exec:
+        namespace: default
+        pod: "{{ item }}"
+        command: apt install stress -y
+      with_items: "{{ pods }}"
+    - name: stress cpu
+      kubernetes.core.k8s_exec:
+        namespace: default
+        pod: "{{ item }}"
+        command: stress --cpu 8 -v --timeout 30s
+      with_items: "{{ pods }}"
