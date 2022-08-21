@@ -27,3 +27,9 @@ Refer to 👉 [`/wiremock`](/wiremock) for setup instructions
 ```bash
 chaos run experiment/network/fixed_delay_wiremock.yaml --rollback-strategy deviated
 ```
+
+## Resources
+- [toxiproxy](https://github.com/Shopify/toxiproxy)
+- [chaostoolkit-toxiproxy](https://chaostoolkit.org/drivers/toxiproxy/)
+- [wiremock](https://wiremock.org/)
+- [chaostoolkit-wiremock](https://chaostoolkit.org/drivers/wiremock/)

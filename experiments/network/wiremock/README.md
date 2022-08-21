@@ -18,3 +18,6 @@ The following are exposed endpoints from this configuration
 * `/greet`
 * `/items`
 * `/error`
+
+## Resources
+- [wiremock](https://wiremock.org/)
