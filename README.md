@@ -30,6 +30,7 @@ chaos run experiments/kubernetes/terminate_pod.yaml  --rollback-strategy deviate
 ```bash
 chaos run experiments/load_test/stress_service.yaml  --rollback-strategy deviated
 ```
+* refer to 👉 [`/experiments`](/experiments) for all experiment groupings
 
 # Experiment solutions
 * `experiments/kubernetes/terminate_pod.yaml`: number of replicas should be at least 2
