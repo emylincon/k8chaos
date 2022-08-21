@@ -1,0 +1,28 @@
+---
+title: Do we remain available after stressing cpu, memory, io & disk space
+description: service endpoint might throttle
+configuration:
+  front_url:
+    type: env
+    key: FRONT_URL
+    default: http://127.0.0.1
+steady-state-hypothesis:
+  title: Verifying service remains healthy
+  probes:
+    - type: probe
+      name: front-service-must-be-ok
+      tolerance: 200
+      provider:
+        type: http
+        url: "${front_url}"
+        timeout: 10
+
+method:
+- type: action
+  name: simulate-cpu-stress
+  background: true
+  provider:
+    type: process
+    path: /opt/homebrew/bin/bash
+    arguments: "experiments/computing/scripts/stressPod.sh"
+  pause: 10

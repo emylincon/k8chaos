@@ -4,5 +4,9 @@
 ```bash
 chaos run experiments/computing/stress_cpu.yml
 ```
+* run stress compute
+```bash
+chaos run experiments/computing/stress_compute.yml
+```
 ## Resources
 [chaostoolkit-process-provider](https://chaostoolkit.org/reference/api/experiment/#process-provider)
