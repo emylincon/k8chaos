@@ -1,0 +1,16 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: wiremock
+  namespace: wiremock
+spec:
+  selector:
+    app: wiremock
+  type: LoadBalancer
+  ports:
+  - name: wiremock
+    protocol: TCP
+    port: 8080
+    targetPort: wiremock
+    # nodePort: 30001

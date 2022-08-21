@@ -1,0 +1,63 @@
+# https://kubernetes.io/docs/concepts/configuration/configmap/
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: wiremock
+  namespace: wiremock
+data:
+  name.json: |
+    {
+      "request": {
+          "method": "GET",
+          "url": "/name"
+      },
+      "response": {
+          "status": 200,
+          "body": "Emeka Ugwuanyi",
+          "headers": {
+              "Content-Type": "text/plain"
+          }
+      }
+    }
+  greetings.json: |
+    {
+      "request": {
+          "method": "GET",
+          "url": "/greet"
+      },
+      "response": {
+          "status": 200,
+          "body": "Hello, Emeka!",
+          "headers": {
+              "Content-Type": "text/plain"
+          }
+      }
+    }
+  error.json: |
+    {
+      "request": {
+          "method": "GET",
+          "url": "/error"
+      },
+      "response": {
+          "status": 404,
+          "body": "PATH NOT FOUND!",
+          "headers": {
+              "Content-Type": "text/plain"
+          }
+      }
+    }
+  items.json: |
+    {
+      "request": {
+          "method": "GET",
+          "url": "/items"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": { "status": "success", "items": ["book", "chair", "table", "laptop", "office"] },
+        "headers": {
+            "Content-Type": "application/json"
+        }
+      }
+    }
