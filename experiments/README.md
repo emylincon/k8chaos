@@ -21,8 +21,7 @@ These are experiments that are intended to be explored
 * connection delay
 * Packet loss
 
-## Os Resource
+## [Computing Resource🔗](computing/)
 * CPU overload
 * Memory overload
 * I/O overload
-* shutdown
