@@ -3,7 +3,7 @@ description: service would be unavailable if there is no autoscaling group avail
 configuration:
   aws_profile_name: "sandbox"
   aws_region: "eu-central-1"
-  front_url: http://3.67.84.250 # replace with terraform output
+  front_url: http://3.121.212.200 # replace with terraform output
 steady-state-hypothesis:
   title: Verifying service remains healthy
   probes:
