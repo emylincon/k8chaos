@@ -1,9 +1,9 @@
-title: Do we remain available after restarting ec2
-description: service would be unavailable for a short period of time
+title: Do we remain available after shutting down ec2
+description: service would be unavailable if there is no autoscaling group available
 configuration:
   aws_profile_name: "sandbox"
   aws_region: "eu-central-1"
-  front_url: http://3.121.212.200
+  front_url: http://3.66.162.70/
 steady-state-hypothesis:
   title: Verifying service remains healthy
   probes:
@@ -13,15 +13,14 @@ steady-state-hypothesis:
       provider:
         type: http
         url: "${front_url}"
-        timeout: 10
 method:
   - type: action
-    name: restart-instance
+    name: terminate-instance
     provider:
-      func: restart_instances
+      func: terminate_instance
       module: chaosaws.ec2.actions
       type: python
       arguments:
         az: "eu-central-1a"
     pauses:
-      after: 60 # takes about 55 seconds for ec2 instance to be up after restarting
+      after: 60

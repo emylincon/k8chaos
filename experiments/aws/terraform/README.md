@@ -19,7 +19,9 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_autoscaling_group.ec2_auto_scaling_group](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/resources/autoscaling_group) | resource |
 | [aws_instance.web](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/resources/instance) | resource |
+| [aws_launch_configuration.ec2_launch_config](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/resources/launch_configuration) | resource |
 | [aws_security_group.ec2_sg](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/resources/security_group) | resource |
 | [aws_ami.ubuntu](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/data-sources/ami) | data source |
 | [aws_subnet.subnet](https://registry.terraform.io/providers/hashicorp/aws/4.27.0/docs/data-sources/subnet) | data source |
