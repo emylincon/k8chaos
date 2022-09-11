@@ -20,6 +20,29 @@ sudo apt update -y
 sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
+ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
+read -r -d '' page << EOM
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Instance with ASG!</h1>
+<p>If you see this page, the web server is running successfully</p>
+
+<p><em>Hostname: $(hostname)</em></p>
+<p><em>IP Address: $ip </em></p>
+</body>
+</html>
+EOM
+
+sudo echo $page > /var/www/html/index.nginx-debian.html
 EOF
   instance_type               = "t2.micro"
   name                        = "web_config"
