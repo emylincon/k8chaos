@@ -6,7 +6,7 @@
 ```bash
 terraform apply
 ```
-* copy the ec2 ip and replace the `front_url` variable in [`ec2_restart.yaml`](./ec2_restart.yaml)
+* source ./config_env_vars.sh
 
 ## Run experiment
 ```bash

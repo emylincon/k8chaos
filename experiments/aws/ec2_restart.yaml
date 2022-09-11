@@ -3,7 +3,11 @@ description: service would be unavailable for a short period of time
 configuration:
   aws_profile_name: "sandbox"
   aws_region: "eu-central-1"
-  front_url: http://3.121.212.200 # replace with terraform output
+  ec2_ip:
+    # default: http://localhost
+    type: env
+    key: EC2_IP_NO_ASG
+
 steady-state-hypothesis:
   title: Verifying service remains healthy
   probes:
@@ -12,7 +16,7 @@ steady-state-hypothesis:
       tolerance: 200
       provider:
         type: http
-        url: "${front_url}"
+        url: "http://${ec2_ip}"
         timeout: 10
 method:
   - type: action
