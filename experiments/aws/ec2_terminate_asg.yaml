@@ -16,6 +16,7 @@ steady-state-hypothesis:
       provider:
         type: http
         url: "http://${ec2_ip}"
+        timeout: 10
 method:
   - type: action
     name: terminate-instance
@@ -25,5 +26,9 @@ method:
       type: python
       arguments:
         az: "eu-central-1a"
+        filters:
+          - Name: "tag:aws:autoscaling:groupName"
+            Values:
+              - asg
     pauses:
       after: 60

@@ -16,6 +16,7 @@ steady-state-hypothesis:
       provider:
         type: http
         url: "http://${ec2_ip}"
+        timeout: 10
 method:
   - type: action
     name: terminate-instance

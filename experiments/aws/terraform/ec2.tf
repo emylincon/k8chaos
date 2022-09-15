@@ -18,7 +18,7 @@ read -r -d '' page << EOM
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome!</title>
+<title>No ASG</title>
 <style>
 html { color-scheme: light dark; }
 body { width: 35em; margin: 0 auto;

@@ -27,5 +27,9 @@ method:
       type: python
       arguments:
         az: "eu-central-1a"
+        filters:
+          - Name: "tag:Name"
+            Values:
+              - ec2-instance
     pauses:
       after: 60 # takes about 55 seconds for ec2 instance to be up after restarting

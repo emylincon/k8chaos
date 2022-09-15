@@ -6,7 +6,10 @@
 ```bash
 terraform apply
 ```
-* source ./config_env_vars.sh
+* load environment variables
+```bash
+source ./config_env_vars.sh
+```
 
 ## Run experiment
 ```bash
